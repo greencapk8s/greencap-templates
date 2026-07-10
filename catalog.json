@@ -1,0 +1,10 @@
+[
+  {
+    "id": "crud-flask-postgres",
+    "title": "CRUD in Python (Flask) + PostgreSQL",
+    "description": "A minimal CRUD application with a Python (Flask) backend that serves its own HTML interface, persisting data in PostgreSQL. A good starting point to study how a stateless Deployment connects to a stateful database within the same Namespace.",
+    "technologies": ["Python", "Flask", "PostgreSQL"],
+    "path": "crud-flask-postgres",
+    "namespace": "crud-flask-postgres"
+  }
+]
