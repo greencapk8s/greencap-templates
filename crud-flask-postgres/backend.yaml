@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: backend
   namespace: crud-flask-postgres
+  labels:
+    app.kubernetes.io/part-of: crud-flask-postgres
+    app.kubernetes.io/component: backend
 spec:
   replicas: 1
   selector:
@@ -34,6 +37,9 @@ kind: Service
 metadata:
   name: backend
   namespace: crud-flask-postgres
+  labels:
+    app.kubernetes.io/part-of: crud-flask-postgres
+    app.kubernetes.io/component: backend
 spec:
   selector:
     app: backend

@@ -3,6 +3,9 @@ kind: Secret
 metadata:
   name: postgres-credentials
   namespace: crud-flask-postgres
+  labels:
+    app.kubernetes.io/part-of: crud-flask-postgres
+    app.kubernetes.io/component: postgres
 type: Opaque
 stringData:
   POSTGRES_USER: crud
@@ -14,6 +17,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: postgres-data
   namespace: crud-flask-postgres
+  labels:
+    app.kubernetes.io/part-of: crud-flask-postgres
+    app.kubernetes.io/component: postgres
 spec:
   accessModes:
     - ReadWriteOnce
@@ -26,6 +32,9 @@ kind: Deployment
 metadata:
   name: postgres
   namespace: crud-flask-postgres
+  labels:
+    app.kubernetes.io/part-of: crud-flask-postgres
+    app.kubernetes.io/component: postgres
 spec:
   replicas: 1
   selector:
@@ -60,6 +69,9 @@ kind: Service
 metadata:
   name: postgres
   namespace: crud-flask-postgres
+  labels:
+    app.kubernetes.io/part-of: crud-flask-postgres
+    app.kubernetes.io/component: postgres
 spec:
   selector:
     app: postgres

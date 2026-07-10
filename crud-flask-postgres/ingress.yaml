@@ -3,6 +3,9 @@ kind: Ingress
 metadata:
   name: backend
   namespace: crud-flask-postgres
+  labels:
+    app.kubernetes.io/part-of: crud-flask-postgres
+    app.kubernetes.io/component: backend
 spec:
   rules:
     - host: crud-flask-postgres.greencap.local
