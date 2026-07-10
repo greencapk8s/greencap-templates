@@ -1,13 +1,13 @@
 # greencap-templates
 
-Official catalog of Templates consumed by the Samples Catalog view in [GreenCap K8s](https://github.com/greencapk8s/greencap-k8s), under Developer Experience. A Template is a complete study application (Kubernetes resources, and optionally source code to be built) that GreenCap can deploy into a Cluster in one click.
+Official catalog of Templates consumed by the Templates Catalog view in [GreenCap K8s](https://github.com/greencapk8s/greencap-k8s), under Developer Experience. A Template is a complete study application (Kubernetes resources, and optionally source code to be built) that GreenCap can deploy into a Cluster in one click.
 
 This repository is fetched by GreenCap over plain HTTP (`raw.githubusercontent.com`) — there is no Git client involved on the GreenCap side, so every file referenced below must be reachable as raw content on the default branch.
 
 ## Repository layout
 
 ```
-catalog.json                  # index of every Template (read by the Samples Catalog list view)
+catalog.json                  # index of every Template (read by the Templates Catalog list view)
 <template-id>/
   template.yaml                # manifest for this Template (read when a user opens/deploys it)
   <resource files>.yaml         # Kubernetes resources, applied in the order listed in template.yaml
@@ -21,7 +21,7 @@ A JSON array. Each entry:
 | Field | Description |
 |---|---|
 | `id` | Unique identifier, matches the Template's directory name |
-| `title` | Card title in the Samples Catalog |
+| `title` | Card title in the Templates Catalog |
 | `description` | Card description |
 | `technologies` | List of technology badges shown on the card |
 | `path` | Directory (relative to the repository root) containing `template.yaml` |
