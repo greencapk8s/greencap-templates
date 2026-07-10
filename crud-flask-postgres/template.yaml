@@ -6,5 +6,5 @@ resources:
 builds:
   - name: backend
     contextPath: app
-    dockerfilePath: app/Dockerfile
+    dockerfilePath: Dockerfile
     image: crud-flask-postgres/backend
