@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+
+# Claude Code local settings + its atomic-write temp files
+.claude/settings.local.json
+.claude/*.tmp.*
