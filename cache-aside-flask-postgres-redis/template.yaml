@@ -1,0 +1,11 @@
+resources:
+  - namespace.yaml
+  - postgres.yaml
+  - redis.yaml
+  - backend.yaml
+  - ingress.yaml
+builds:
+  - name: backend
+    contextPath: app
+    dockerfilePath: Dockerfile
+    image: cache-aside-flask-postgres-redis/backend

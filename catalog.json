@@ -6,5 +6,21 @@
     "technologies": ["Python", "Flask", "PostgreSQL"],
     "path": "crud-flask-postgres",
     "namespace": "crud-flask-postgres"
+  },
+  {
+    "id": "crud-flask-mongodb",
+    "title": "CRUD in Python (Flask) + MongoDB",
+    "description": "A minimal CRUD application with a Python (Flask) backend that serves its own HTML interface, persisting data in MongoDB. A good companion to the PostgreSQL CRUD Template to compare a document-oriented datastore with a relational one, using the same stateless Deployment + stateful storage pattern.",
+    "technologies": ["Python", "Flask", "MongoDB"],
+    "path": "crud-flask-mongodb",
+    "namespace": "crud-flask-mongodb"
+  },
+  {
+    "id": "cache-aside-flask-postgres-redis",
+    "title": "Cache-aside in Python (Flask) + PostgreSQL + Redis",
+    "description": "A CRUD application backed by PostgreSQL that adds a Redis cache-aside layer in front of its listing endpoint, with TTL plus active invalidation on writes. A good starting point to study the cache-aside pattern and how a stateless Deployment can depend on more than one stateful component within the same Namespace.",
+    "technologies": ["Python", "Flask", "PostgreSQL", "Redis"],
+    "path": "cache-aside-flask-postgres-redis",
+    "namespace": "cache-aside-flask-postgres-redis"
   }
 ]

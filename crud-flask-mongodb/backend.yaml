@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: crud-flask-mongodb
+  labels:
+    app.kubernetes.io/part-of: crud-flask-mongodb
+    app.kubernetes.io/component: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+        app.kubernetes.io/part-of: crud-flask-mongodb
+        app.kubernetes.io/component: backend
+    spec:
+      containers:
+        - name: backend
+          image: __BUILD__backend
+          env:
+            - name: MONGO_HOST
+              value: mongodb
+            - name: MONGO_PORT
+              value: "27017"
+            - name: MONGO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-credentials
+                  key: MONGO_INITDB_ROOT_USERNAME
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-credentials
+                  key: MONGO_INITDB_ROOT_PASSWORD
+            - name: MONGO_DB
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-credentials
+                  key: MONGO_INITDB_DATABASE
+          ports:
+            - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: crud-flask-mongodb
+  labels:
+    app.kubernetes.io/part-of: crud-flask-mongodb
+    app.kubernetes.io/component: backend
+spec:
+  selector:
+    app: backend
+  ports:
+    - port: 80
+      targetPort: 5000

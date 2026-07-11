@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRUD Flask + MongoDB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page">
+    <header class="app-header">
+      <div>
+        <h1>Items</h1>
+        <p class="subtitle">CRUD in Python (Flask) + MongoDB — GreenCap Templates Catalog</p>
+      </div>
+      <a class="btn btn-primary" href="{{ url_for('create_item') }}">+ New item</a>
+    </header>
+
+    {% if items %}
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Description</th><th></th></tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <td>{{ item._id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+              <div class="actions">
+                <a class="btn btn-secondary" href="{{ url_for('edit_item', item_id=item._id) }}">Edit</a>
+                <form class="inline" method="post" action="{{ url_for('delete_item', item_id=item._id) }}">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="card empty-state">
+      <p>No items yet.</p>
+      <a class="btn btn-primary" href="{{ url_for('create_item') }}">Create the first one</a>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
