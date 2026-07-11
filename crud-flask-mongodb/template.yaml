@@ -1,8 +1,8 @@
 resources:
-  - namespace.yaml
-  - mongodb.yaml
-  - backend.yaml
-  - ingress.yaml
+  - infra/namespace.yaml
+  - infra/mongodb.yaml
+  - infra/backend.yaml
+  - infra/ingress.yaml
 builds:
   - name: backend
     contextPath: app

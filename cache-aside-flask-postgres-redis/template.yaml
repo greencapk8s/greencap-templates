@@ -1,9 +1,9 @@
 resources:
-  - namespace.yaml
-  - postgres.yaml
-  - redis.yaml
-  - backend.yaml
-  - ingress.yaml
+  - infra/namespace.yaml
+  - infra/postgres.yaml
+  - infra/redis.yaml
+  - infra/backend.yaml
+  - infra/ingress.yaml
 builds:
   - name: backend
     contextPath: app

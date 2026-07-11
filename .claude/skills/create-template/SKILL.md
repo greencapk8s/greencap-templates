@@ -34,6 +34,7 @@ Decide and confirm with the user:
 
 List the Resource files in apply order. Rules (see `README.md`):
 
+- Resource files live under the Template's **`infra/` directory**, referenced from `resources` as `infra/<file>.yaml`.
 - The **Namespace Resource comes first** — everything else lives inside it. Its `name` equals the `id`.
 - Every other Resource sets `namespace: <id>` and never touches the user's active Namespace.
 - Prefer **public, pinned images** (`postgres:16-alpine`, not `postgres:latest`) for anything that doesn't need a Build.
@@ -70,8 +71,8 @@ Leave `dockerfilePath` as bare `Dockerfile` unless it lives in a subdirectory of
 
 Create `<id>/` and, inside it:
 
-1. `template.yaml` — `resources` in apply order (Namespace first) and optional `builds`.
-2. Each Resource `.yaml` file.
+1. `template.yaml` — `resources` in apply order (Namespace first, each path as `infra/<file>.yaml`) and optional `builds`.
+2. `infra/` holding each Resource `.yaml` file.
 3. The build context directory (source + `Dockerfile`) for any Build.
 
 Then add the Template's entry to the `catalog.json` array at the repo root:

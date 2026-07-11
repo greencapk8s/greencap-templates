@@ -19,7 +19,7 @@ A Template's `template.yaml` — read when a user opens or deploys the Template.
 _Avoid_: Config, spec, descriptor
 
 **Resource**:
-A single Kubernetes object file listed under `resources` in the Manifest, applied in the order given. Paths are relative to the Template's directory. Exactly one Resource must define the Template's Namespace, and it must come first — everything else lives inside it.
+A single Kubernetes object file listed under `resources` in the Manifest, applied in the order given. Resources live under the Template's `infra/` directory, and paths are relative to the Template's directory (e.g. `infra/namespace.yaml`). Exactly one Resource must define the Template's Namespace, and it must come first — everything else lives inside it.
 _Avoid_: Object, asset, file
 
 **Namespace**:
