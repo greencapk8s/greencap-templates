@@ -1,0 +1,37 @@
+<header class="app-header">
+  <div>
+    <h1>Items</h1>
+    <p class="subtitle">CRUD in Ruby (Rails) + MySQL — GreenCap Templates Catalog</p>
+  </div>
+  <%= link_to "+ New item", new_item_path, class: "btn btn-primary" %>
+</header>
+
+<% if @items.any? %>
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Description</th><th></th></tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.description %></td>
+            <td>
+              <div class="actions">
+                <%= link_to "Edit", edit_item_path(item), class: "btn btn-secondary" %>
+                <%= button_to "Delete", item_path(item), method: :delete, class: "btn btn-danger", form_class: "inline" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <div class="card empty-state">
+    <p>No items yet.</p>
+    <%= link_to "Create the first one", new_item_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backend
+  namespace: crud-rails-mysql
+  labels:
+    app.kubernetes.io/part-of: crud-rails-mysql
+    app.kubernetes.io/component: backend
+spec:
+  rules:
+    - host: crud-rails-mysql.greencap.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 80

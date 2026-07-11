@@ -1,0 +1,20 @@
+<header class="app-header">
+  <h1><%= @item.persisted? ? "Edit item" : "New item" %></h1>
+</header>
+
+<div class="form-card">
+  <%= form_with model: @item do |f| %>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+      <%= link_to "Cancel", root_path, class: "back-link" %>
+    </div>
+  <% end %>
+</div>

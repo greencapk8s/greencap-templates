@@ -22,5 +22,13 @@
     "technologies": ["Python", "Flask", "PostgreSQL", "Redis"],
     "path": "cache-aside-flask-postgres-redis",
     "namespace": "cache-aside-flask-postgres-redis"
+  },
+  {
+    "id": "crud-rails-mysql",
+    "title": "CRUD in Ruby (Rails) + MySQL",
+    "description": "A minimal CRUD application with a Ruby on Rails backend that serves its own HTML interface, persisting data in MySQL. A good starting point to compare a convention-over-configuration full-stack framework with the minimal Flask Templates, and to see how a stateless Deployment connects to a MySQL database within the same Namespace.",
+    "technologies": ["Ruby", "Rails", "MySQL"],
+    "path": "crud-rails-mysql",
+    "namespace": "crud-rails-mysql"
   }
 ]

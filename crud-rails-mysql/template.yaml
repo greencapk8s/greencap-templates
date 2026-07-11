@@ -1,0 +1,10 @@
+resources:
+  - namespace.yaml
+  - mysql.yaml
+  - backend.yaml
+  - ingress.yaml
+builds:
+  - name: backend
+    contextPath: app
+    dockerfilePath: Dockerfile
+    image: crud-rails-mysql/backend

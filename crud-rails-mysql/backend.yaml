@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: crud-rails-mysql
+  labels:
+    app.kubernetes.io/part-of: crud-rails-mysql
+    app.kubernetes.io/component: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+        app.kubernetes.io/part-of: crud-rails-mysql
+        app.kubernetes.io/component: backend
+    spec:
+      containers:
+        - name: backend
+          image: __BUILD__backend
+          envFrom:
+            - secretRef:
+                name: mysql-credentials
+          env:
+            - name: MYSQL_HOST
+              value: mysql
+            - name: MYSQL_PORT
+              value: "3306"
+            - name: SECRET_KEY_BASE
+              value: greencap-templates-crud-rails-mysql-study-secret
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: crud-rails-mysql
+  labels:
+    app.kubernetes.io/part-of: crud-rails-mysql
+    app.kubernetes.io/component: backend
+spec:
+  selector:
+    app: backend
+  ports:
+    - port: 80
+      targetPort: 3000
